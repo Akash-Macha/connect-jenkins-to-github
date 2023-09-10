@@ -28,8 +28,7 @@ pipeline {
             steps {
                 echo "${env.WORKSPACE}"
                 sh("ls")
-                sh("ls")
-                sh("ls")
+                sh("pwd")
                 sh("${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}")
             }
         }
