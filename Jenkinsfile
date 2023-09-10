@@ -29,12 +29,13 @@ pipeline {
                 echo "${env.WORKSPACE}"
                 sh("ls")
                 sh("pwd")
-                sh("${env.WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}")
+                sh("JENKINS_WORKSPACE")
+                sh("${JENKINS_WORKSPACE}/scripts/fibonacci.sh ${env.NUMBER}")
             }
         }
         stage('Change directory') {
             steps {
-                dir("${env.WORKSPACE}/scripts"){
+                dir("${JENKINS_WORKSPACE}/scripts"){
                     sh("./fibonacci.sh ${env.NUMBER}")
                 }
             }
